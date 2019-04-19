@@ -60,6 +60,16 @@ resource "kubernetes_deployment" "vault" {
             capabilities {
               add = ["IPC_LOCK"]
             }
+          env {
+            name = "VAULT_DEV_ROOT_TOKEN_ID"
+
+            value_from {
+              secret_key_ref {
+                name = "vault-secret"
+                key  = "token"
+              }
+            }
+          }
             # privileged = true
             # run_as_non_root = true
          
@@ -67,15 +77,15 @@ resource "kubernetes_deployment" "vault" {
             # run_as_non_root = true
             # run_as_user = 10001
           }
-          env {
-          #   name  = "vault-token"
-          #   value = "${var.vault_token}"
-          # }
-              secret_key_ref {
-                name = "vault-secret"
-                key  = "token"
-              }
-            }
+          # env {
+          # #   name  = "vault-token"
+          # #   value = "${var.vault_token}"
+          # # }
+          #     secret_key_ref {
+          #       name = "vault-secret"
+          #       key  = "token"
+          #     }
+          #   }
           # }
           # env_from {
           #   secret_ref {
