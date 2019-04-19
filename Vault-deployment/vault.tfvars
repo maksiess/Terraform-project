@@ -1,1 +1,1 @@
-vault_token     =       "shermat"
+vault_token     ="shermat"
