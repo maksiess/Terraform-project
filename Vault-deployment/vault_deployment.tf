@@ -68,20 +68,20 @@ resource "kubernetes_deployment" "vault" {
             # run_as_user = 10001
           }
           env {
-            name  = "vault-token"
-            value = "${var.vault_token}"
-          }
-          #     secret_key_ref {
-          #       name = "vault-secret"
-          #       key  = "token"
-          #     }
+          #   name  = "vault-token"
+          #   value = "${var.vault_token}"
+          # }
+              secret_key_ref {
+                name = "vault-secret"
+                key  = "token"
+              }
+            }
+          # }
+          # env_from {
+          #   secret_ref {
+          #     name = "vualt-secret"
           #   }
           # }
-          env_from {
-            secret_ref {
-              name = "vualt-secret"
-            }
-          }
           volume_mount {
             name       = "vault-pvc"
             mount_path = "/var/run"
