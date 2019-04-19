@@ -77,11 +77,11 @@ resource "kubernetes_deployment" "vault" {
           #     }
           #   }
           # }
-          env_from {
-            secret_ref {
-              name = "vualt-secret"
-            }
-          }
+          # env_from {
+          #   secret_ref {
+          #     name = "vualt-secret"
+          #   }
+          # }
           volume_mount {
             name       = "vault-pvc"
             mount_path = "/var/run"
