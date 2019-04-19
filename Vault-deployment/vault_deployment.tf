@@ -101,7 +101,6 @@ resource "kubernetes_deployment" "vault" {
       }
     }
   }
-}
 resource "kubernetes_service" "vault_service" {
   # depends_on = ["kubernetes_secret.vault_secret"]
   metadata {
