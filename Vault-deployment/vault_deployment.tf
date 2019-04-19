@@ -4,8 +4,8 @@ resource "kubernetes_secret" "vault_secret" {
     namespace = "tools"
   }
   data {
-    token = "TVJYZ2tTeGZ0c2pqeUlqYkF4Nk9MS0Rmbgo="
-  }
+    token = "${var.vault_token}"
+    }
   type = "Opaque"
 }
 resource "kubernetes_persistent_volume_claim" "vault_pvc" {
@@ -78,7 +78,7 @@ resource "kubernetes_deployment" "vault" {
             # run_as_user = 10001
           }
           env {
-            name  = "VAULT_DEV_ROOT_TOKEN_ID"
+            name  = "VAULT_TOKEN_ID"
             value_from {
               secret_key_ref {
                 name = "vault-secret"
