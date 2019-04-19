@@ -5,7 +5,7 @@ resource "kubernetes_secret" "vault_secret" {
   }
 
   data {
-    token = "${vault_token}"
+    token = "${var.vault_token}"
   }
 
   type = "Opaque"
