@@ -1,3 +1,13 @@
+resource "kubernetes_secret" "vault_secret" {
+  metadata {
+    name      = "vault-secret"
+    namespace = "tools"
+  }
+  data {
+    token = "TVJYZ2tTeGZ0c2pqeUlqYkF4Nk9MS0Rmbgo="
+    }
+  type = "Opaque"
+}
 
 resource "kubernetes_persistent_volume_claim" "vault_pvc" {
   depends_on = ["kubernetes_secret.vault_secret"]
