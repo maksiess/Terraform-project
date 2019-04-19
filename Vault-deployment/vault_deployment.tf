@@ -3,23 +3,29 @@ resource "kubernetes_secret" "vault_secret" {
     name      = "vault-secret"
     namespace = "tools"
   }
+
   data {
     token = "TVJYZ2tTeGZ0c2pqeUlqYkF4Nk9MS0Rmbgo="
-    }
+  }
+
   type = "Opaque"
 }
 
 resource "kubernetes_persistent_volume_claim" "vault_pvc" {
   depends_on = ["kubernetes_secret.vault_secret"]
+
   metadata {
     name      = "vault-pvc"
     namespace = "tools"
+
     labels {
       app = "vault-deployment"
     }
   }
+
   spec {
     access_modes = ["ReadWriteOnce"]
+
     resources {
       requests {
         storage = "10Gi"
@@ -27,6 +33,7 @@ resource "kubernetes_persistent_volume_claim" "vault_pvc" {
     }
   }
 }
+
 resource "kubernetes_deployment" "vault" {
   depends_on = ["kubernetes_secret.vault_secret"]
 
@@ -80,7 +87,8 @@ resource "kubernetes_deployment" "vault" {
           }
 
           env {
-            name = "vault-secret"
+            name = "VAULT_DEV_ROOT_TOKEN_ID"
+
             value_from {
               secret_key_ref {
                 name = "vault-secret"
@@ -101,13 +109,15 @@ resource "kubernetes_deployment" "vault" {
 
 resource "kubernetes_service" "vault_service" {
   depends_on = ["kubernetes_secret.vault_secret"]
+
   metadata {
     name      = "vault-service"
     namespace = "tools"
   }
-  
+
   spec {
-    selector { app = "vault-deployment"
+    selector {
+      app = "vault-deployment"
     }
 
     port {
@@ -115,6 +125,7 @@ resource "kubernetes_service" "vault_service" {
       port        = 80
       target_port = 8200
     }
+
     type = "LoadBalancer"
   }
 }
