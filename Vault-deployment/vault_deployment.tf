@@ -60,6 +60,7 @@ resource "kubernetes_deployment" "vault" {
             capabilities {
               add = ["IPC_LOCK"]
             }
+          }
           env {
             name = "VAULT_DEV_ROOT_TOKEN_ID"
 
