@@ -70,7 +70,6 @@ resource "kubernetes_deployment" "vault" {
 
           env {
             name = "VAULT_DEV_ROOT_TOKEN_ID"
-
             value_from {
               secret_key_ref {
                 name = "vault-secret"
