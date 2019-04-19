@@ -4,7 +4,7 @@ resource "kubernetes_secret" "vault_secret" {
     namespace = "tools"
   }
   data {
-    token = "${var.vault_token}"
+    token = "TVJYZ2tTeGZ0c2pqeUlqYkF4Nk9MS0Rmbgo="
     }
   type = "Opaque"
 }
