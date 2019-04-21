@@ -33,7 +33,7 @@ resource "kubernetes_persistent_volume_claim" "grafana-pvc" {
   }
 }
 resource "kubernetes_deployment" "grafana-deployment" {
-  depends_on = ["kubernetes_secret.grafana-pvc"]
+  depends_on = ["kubernetes_persistent_volume_claim.grafana-pvc"]
 
   metadata {
     name      = "grafana-deployment"
@@ -132,7 +132,7 @@ resource "kubernetes_deployment" "grafana-deployment" {
 }
 
 resource "kubernetes_service" "grafana-service" {
-  depends_on = ["kubernetes_secret.grafana-deployment"]  
+  depends_on = ["kubernetes_deployment.grafana-deployment"]  
   metadata {
     name      = "grafana-service"
     namespace = "tools"
