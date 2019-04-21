@@ -58,7 +58,6 @@ resource "kubernetes_deployment" "grafana-deployment" {
       metadata {
         labels {
           app       = "grafana-deployment"
-          component = "core"
         }
       }
 
@@ -72,7 +71,7 @@ resource "kubernetes_deployment" "grafana-deployment" {
         }
 
         container {
-          name  = "grafana-core"
+          name  = "grafana-deployment"
           image = "grafana/grafana:4.2.0"
 
           port {
@@ -143,9 +142,8 @@ resource "kubernetes_service" "grafana-service" {
   spec {
     selector {
       app       = "grafana-deployment"
-      component = "core"
     }
-    
+
     port {
       protocol    = "TCP"
       port        = 80
