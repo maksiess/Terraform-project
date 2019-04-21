@@ -138,16 +138,14 @@ resource "kubernetes_service" "grafana-service" {
   metadata {
     name      = "grafana-service"
     namespace = "tools"
-    labels {
-      component = "core"
-      app       = "grafana-deployment"
-    }
   }
+
   spec {
     selector {
       app       = "grafana-deployment"
       component = "core"
     }
+    
     port {
       protocol    = "TCP"
       port        = 80
