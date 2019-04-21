@@ -41,7 +41,6 @@ resource "kubernetes_deployment" "grafana-deployment" {
 
     labels {
       app       = "grafana-deployment"
-      component = "core"
     }
   }
 
@@ -57,7 +56,7 @@ resource "kubernetes_deployment" "grafana-deployment" {
     template {
       metadata {
         labels {
-          app       = "grafana-deployment"
+          app = "grafana-deployment"
         }
       }
 
