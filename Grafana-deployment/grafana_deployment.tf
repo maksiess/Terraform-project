@@ -10,7 +10,7 @@ resource "kubernetes_secret" "grafana-secrets" {
   type = "Opaque"
 }
 
-resource "kubernetes_persistent_volume_claim" "grafan-pvc" {
+resource "kubernetes_persistent_volume_claim" "grafana-pvc" {
   depends_on = ["kubernetes_secret.grafana-secrets"]
 
   metadata {
