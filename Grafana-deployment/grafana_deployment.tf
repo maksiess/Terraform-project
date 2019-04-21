@@ -14,7 +14,7 @@ resource "kubernetes_persistent_volume_claim" "grafana-pvc" {
   depends_on = ["kubernetes_secret.grafana-secrets"]
 
   metadata {
-    name      = "grafan-pvc"
+    name      = "grafana-pvc"
     namespace = "tools"
 
     labels {
