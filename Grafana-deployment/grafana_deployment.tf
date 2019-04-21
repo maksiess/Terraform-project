@@ -61,7 +61,7 @@ resource "kubernetes_deployment" "grafana-deployment" {
 
       spec {
         volume {
-          name = "grafana_pvc"
+          name = "grafana-pvc"
 
           persistent_volume_claim {
             claim_name = "grafana-pvc"
