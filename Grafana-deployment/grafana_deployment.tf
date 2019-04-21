@@ -74,6 +74,12 @@ resource "kubernetes_deployment" "grafana-deployment" {
         container {
           name  = "grafana-core"
           image = "grafana/grafana:4.2.0"
+
+          port {
+            container_port = 3000
+            protocol       = "TCP"
+          }
+
           env {
             name  = "GF_AUTH_BASIC_ENABLED"
             value = "true"
@@ -114,12 +120,12 @@ resource "kubernetes_deployment" "grafana-deployment" {
             name       = "grafana-pvc"
             mount_path = "/var/lib/grafana"
           }
-          readiness_probe {
-            http_get {
-              path = "/login"
-              port = "3000"
-            }
-          }
+        #   readiness_probe {
+        #     http_get {
+        #       path = "/login"
+        #       port = "3000"
+        #     }
+        #   }
           image_pull_policy = "IfNotPresent"
         }
       }
@@ -138,15 +144,16 @@ resource "kubernetes_service" "grafana-service" {
     }
   }
   spec {
+    selector {
+      app       = "grafana-deployment"
+      component = "core"
+    }
     port {
       protocol    = "TCP"
       port        = 80
       target_port = 3000
     }
-    selector {
-      app       = "grafana-deployment"
-      component = "core"
-    }
+    
     type = "LoadBalancer"
   }
 }
