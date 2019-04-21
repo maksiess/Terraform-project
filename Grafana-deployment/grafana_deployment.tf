@@ -10,7 +10,7 @@ resource "kubernetes_secret" "grafana-secrets" {
   type = "Opaque"
 }
 
-resource "kubernetes_persistent_volume_claim" "grafan_pvc" {
+resource "kubernetes_persistent_volume_claim" "grafan-pvc" {
 
   metadata {
     name      = "grafan-pvc"
