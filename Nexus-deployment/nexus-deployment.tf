@@ -3,7 +3,7 @@ resource "kubernetes_persistent_volume_claim" "nexus_pvc" {
     name      = "nexus-pvc"
     namespace = "tools"
     labels {
-      app = "nexus"
+      app = "nexus-deployment"
     }
   }
   spec {
@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "nexus_deployment" {
     name      = "nexus-deployment"
     namespace = "tools"
     labels {
-      app = "nexus"
+      app = "nexus-deployment"
     }
   }
   spec {
@@ -29,7 +29,7 @@ resource "kubernetes_deployment" "nexus_deployment" {
     template {
       metadata {
         labels {
-          app = "nexus"
+          app = "nexus-deployment"
         }
       }
       spec {
@@ -88,7 +88,7 @@ resource "kubernetes_service" "nexus_service" {
       target_port = "8085"
     }
     selector {
-      app = "nexus"
+      app = "nexus-deployment"
     }
     type = "LoadBalancer"
   }
