@@ -1,7 +1,7 @@
 resource "kubernetes_persistent_volume_claim" "nexus-pvc" {
   metadata {
     name      = "nexus-pvc"
-    namespace = "${namespace}"
+    namespace = "${var.namespace}"
 
     labels {
       app = "nexus-deployment"
@@ -21,7 +21,7 @@ resource "kubernetes_persistent_volume_claim" "nexus-pvc" {
 resource "kubernetes_deployment" "nexus-deployment" {
   metadata {
     name      = "nexus-deployment"
-    namespace = "${namespace}"
+    namespace = "${var.namespace}"
 
     labels {
       app = "nexus-deployment"
@@ -90,7 +90,7 @@ resource "kubernetes_deployment" "nexus-deployment" {
 resource "kubernetes_service" "nexus-service" {
   metadata {
     name      = "nexus-service"
-    namespace = "${namespace}"
+    namespace = "${var.namespace}"
   }
   spec {
     port {
