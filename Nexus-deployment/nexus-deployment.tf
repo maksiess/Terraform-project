@@ -97,13 +97,13 @@ resource "kubernetes_service" "nexus-service" {
       name        = "http"
       protocol    = "TCP"
       port        = 80
-      target_port = "8081"
+      target_port = 8081
     }
     port {
       name        = "docker-repo"
       protocol    = "TCP"
       port        = 8085
-      target_port = "8085"
+      target_port = 8085
     }
     selector {
       app = "nexus-deployment"
