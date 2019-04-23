@@ -18,9 +18,9 @@ resource "kubernetes_persistent_volume_claim" "jira-pvc" {
     storage_class_name = "standard"
   }
 }
-resource "kubernetes_deployment" "terraform-jira" {
+resource "kubernetes_deployment" "Jira-deployment" {
   metadata {
-    name      = "terraform-jira"
+    name      = "Jira-deployment"
     namespace = "${var.namespace}"
 
     labels { 
@@ -58,7 +58,7 @@ resource "kubernetes_deployment" "terraform-jira" {
           name  = "jira-deployment"
 
           port {
-            container_port = 8080
+            container_port = 8090
             protocol       = "TCP"
           }
 
@@ -83,7 +83,7 @@ resource "kubernetes_service" "jira-service" {
     port {
       protocol = "TCP"
       port        = 80
-      target_port = 8080
+      target_port = 8090
     }
 
     selector { 
