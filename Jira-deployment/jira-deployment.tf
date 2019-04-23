@@ -63,7 +63,7 @@ resource "kubernetes_deployment" "terraform-jira" {
           }
 
           volume_mount {
-             name       = "jira-home"
+             name       = "jira-pvc"
              mount_path = "/var/lib/jira"
            }
           image_pull_policy = "IfNotPresent"
