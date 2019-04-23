@@ -18,6 +18,7 @@ resource "kubernetes_persistent_volume_claim" "jenkins-pvc" {
     storage_class_name = "standard"
   }
 }
+
 resource "kubernetes_deployment" "jenkins-deployment" {
   metadata {
     name = "jenkins-deployment"
@@ -68,12 +69,11 @@ resource "kubernetes_deployment" "jenkins-deployment" {
           }
           image_pull_policy = "IfNotPresent"
         }
-
-        }
       }
     }
   }
 }
+
 
 resource "kubernetes_service" "jenkins-service" {
   metadata {
