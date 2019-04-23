@@ -1,10 +1,10 @@
-resource "kubernetes_persistent_volume_claim" "jira-pvc" {
+resource "kubernetes_persistent_volume_claim" "jenkins-pvc" {
   metadata {
-    name      = "jira-pvc"
+    name      = "jenkins-pvc"
     namespace = "${var.namespace}"
 
     labels {
-      app = "jira-deployment"
+      app = "jenkins-deployment"
     }
   }
 
@@ -18,78 +18,80 @@ resource "kubernetes_persistent_volume_claim" "jira-pvc" {
     storage_class_name = "standard"
   }
 }
-resource "kubernetes_deployment" "terraform-jira" {
+resource "kubernetes_deployment" "jenkins-deployment" {
   metadata {
-    name      = "terraform-jira"
+    name = "jenkins-deployment"
     namespace = "${var.namespace}"
 
     labels { 
-      app = "jira-deployment"
+      app = "jenkins-deployment"
     }
   }
 
   spec {
     replicas = 1
 
-    selector {
+    selector { 
       match_labels {
-        app = "jira-deployment"
+        app = "jenkins-deployment"
       }
     }
 
     template {
-      metadata {
-        labels {
-          app = "jira-deployment"
+      metadata { 
+        labels { 
+          app = "jenkins-deployment"
         }
       }
 
       spec {
         volume {
-          name = "jira-pvc"
+          name = "jenkins-pvc"
 
           persistent_volume_claim {
-            claim_name = "jira-pvc"
+            claim_name = "jenkins-pvc"
           }
         }
 
         container {
-          image = "gcr.io/hightowerlabs/jira:7.3.6-standalone"
-          name  = "jira-deployment"
+          image = "fsadykov/centos_jenkins:0.3"
+          name  = "jenkins-deployment"
 
           port {
             container_port = 8080
             protocol       = "TCP"
-          }
+        }
 
           volume_mount {
-             name       = "jira-pvc"
-             mount_path = "/var/lib/jira"
-           }
+            name = "jenkins-pvc"
+            mount_path = "/var/lib/jenkins"
+          }
           image_pull_policy = "IfNotPresent"
+        }
+
         }
       }
     }
   }
 }
 
-resource "kubernetes_service" "jira-service" {
+resource "kubernetes_service" "jenkins-service" {
   metadata {
-    name = "jira-service"
+    name = "jenkins-service"
     namespace = "${var.namespace}"
-  }
+    }
 
   spec {
+    selector {
+      app = "jenkins-deployment"
+    }
+
     port {
       protocol = "TCP"
-      port        = 80
+      port = 80
       target_port = 8080
     }
 
-    selector { 
-      app = "jira-deployment"  
-  }
-
     type = "LoadBalancer"
-    }
+  }
 }
