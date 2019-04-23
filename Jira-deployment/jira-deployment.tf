@@ -10,20 +10,23 @@ resource "kubernetes_persistent_volume_claim" "jira-pvc" {
 
   spec {
     access_modes = ["ReadWriteOnce"]
+
     resources {
       requests {
         storage = "10Gi"
       }
     }
+
     storage_class_name = "standard"
   }
 }
+
 resource "kubernetes_deployment" "Jira-deployment" {
   metadata {
     name      = "Jira-deployment"
     namespace = "${var.namespace}"
 
-    labels { 
+    labels {
       app = "jira-deployment"
     }
   }
@@ -63,9 +66,10 @@ resource "kubernetes_deployment" "Jira-deployment" {
           }
 
           volume_mount {
-             name       = "jira-pvc"
-             mount_path = "/var/lib/jira"
-           }
+            name       = "jira-pvc"
+            mount_path = "/var/lib/jira"
+          }
+
           image_pull_policy = "IfNotPresent"
         }
       }
@@ -75,21 +79,21 @@ resource "kubernetes_deployment" "Jira-deployment" {
 
 resource "kubernetes_service" "jira-service" {
   metadata {
-    name = "jira-service"
+    name      = "jira-service"
     namespace = "${var.namespace}"
   }
 
   spec {
     port {
-      protocol = "TCP"
+      protocol    = "TCP"
       port        = 80
       target_port = 8090
     }
 
-    selector { 
-      app = "jira-deployment"  
-  }
+    selector {
+      app = "jira-deployment"
+    }
 
     type = "LoadBalancer"
-    }
+  }
 }

@@ -10,21 +10,23 @@ resource "kubernetes_persistent_volume_claim" "jenkins-pvc" {
 
   spec {
     access_modes = ["ReadWriteOnce"]
+
     resources {
       requests {
         storage = "10Gi"
       }
     }
+
     storage_class_name = "standard"
   }
 }
 
 resource "kubernetes_deployment" "jenkins-deployment" {
   metadata {
-    name = "jenkins-deployment"
+    name      = "jenkins-deployment"
     namespace = "${var.namespace}"
 
-    labels { 
+    labels {
       app = "jenkins-deployment"
     }
   }
@@ -32,15 +34,15 @@ resource "kubernetes_deployment" "jenkins-deployment" {
   spec {
     replicas = 1
 
-    selector { 
+    selector {
       match_labels {
         app = "jenkins-deployment"
       }
     }
 
     template {
-      metadata { 
-        labels { 
+      metadata {
+        labels {
           app = "jenkins-deployment"
         }
       }
@@ -61,12 +63,13 @@ resource "kubernetes_deployment" "jenkins-deployment" {
           port {
             container_port = 8080
             protocol       = "TCP"
-        }
+          }
 
           volume_mount {
-            name = "jenkins-pvc"
+            name       = "jenkins-pvc"
             mount_path = "/var/lib/jenkins"
           }
+
           image_pull_policy = "IfNotPresent"
         }
       }
@@ -74,12 +77,11 @@ resource "kubernetes_deployment" "jenkins-deployment" {
   }
 }
 
-
 resource "kubernetes_service" "jenkins-service" {
   metadata {
-    name = "jenkins-service"
+    name      = "jenkins-service"
     namespace = "${var.namespace}"
-    }
+  }
 
   spec {
     selector {
@@ -87,8 +89,8 @@ resource "kubernetes_service" "jenkins-service" {
     }
 
     port {
-      protocol = "TCP"
-      port = 80
+      protocol    = "TCP"
+      port        = 80
       target_port = 8080
     }
 

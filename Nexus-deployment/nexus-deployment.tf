@@ -10,14 +10,17 @@ resource "kubernetes_persistent_volume_claim" "nexus-pvc" {
 
   spec {
     access_modes = ["ReadWriteOnce"]
+
     resources {
       requests {
         storage = "10Gi"
       }
     }
+
     storage_class_name = "standard"
   }
 }
+
 resource "kubernetes_deployment" "nexus-deployment" {
   metadata {
     name      = "nexus-deployment"
@@ -27,13 +30,14 @@ resource "kubernetes_deployment" "nexus-deployment" {
       app = "nexus-deployment"
     }
   }
+
   spec {
     replicas = 1
 
     selector {
-        match_labels {
-            app = "nexus-deployment"
-        }
+      match_labels {
+        app = "nexus-deployment"
+      }
     }
 
     template {
@@ -60,6 +64,7 @@ resource "kubernetes_deployment" "nexus-deployment" {
             name           = "nexus-http"
             container_port = 8081
           }
+
           port {
             name           = "docker-repo"
             container_port = 8085
@@ -81,17 +86,20 @@ resource "kubernetes_deployment" "nexus-deployment" {
             name       = "nexus-pvc"
             mount_path = "/var/lib/nexus"
           }
+
           image_pull_policy = "IfNotPresent"
         }
       }
     }
   }
 }
+
 resource "kubernetes_service" "nexus-service" {
   metadata {
     name      = "nexus-service"
     namespace = "${var.namespace}"
   }
+
   spec {
     port {
       name        = "http"
@@ -99,15 +107,18 @@ resource "kubernetes_service" "nexus-service" {
       port        = 80
       target_port = 8081
     }
+
     port {
       name        = "docker-repo"
       protocol    = "TCP"
       port        = 8085
       target_port = 8085
     }
+
     selector {
       app = "nexus-deployment"
     }
+
     type = "LoadBalancer"
   }
 }

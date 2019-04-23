@@ -3,10 +3,12 @@ resource "kubernetes_secret" "grafana-secrets" {
     name      = "grafana-secrets"
     namespace = "tools"
   }
+
   data {
     password = "${var.password}"
     username = "admin"
   }
+
   type = "Opaque"
 }
 
@@ -32,6 +34,7 @@ resource "kubernetes_persistent_volume_claim" "grafana-pvc" {
     }
   }
 }
+
 resource "kubernetes_deployment" "grafana-deployment" {
   depends_on = ["kubernetes_secret.grafana-secrets"]
 
@@ -40,7 +43,7 @@ resource "kubernetes_deployment" "grafana-deployment" {
     namespace = "tools"
 
     labels {
-      app       = "grafana-deployment"
+      app = "grafana-deployment"
     }
   }
 
@@ -82,8 +85,10 @@ resource "kubernetes_deployment" "grafana-deployment" {
             name  = "GF_AUTH_BASIC_ENABLED"
             value = "true"
           }
+
           env {
             name = "GF_SECURITY_ADMIN_USER"
+
             value_from {
               secret_key_ref {
                 name = "grafana-secrets"
@@ -91,8 +96,10 @@ resource "kubernetes_deployment" "grafana-deployment" {
               }
             }
           }
+
           env {
             name = "GF_SECURITY_ADMIN_PASSWORD"
+
             value_from {
               secret_key_ref {
                 name = "grafana-secrets"
@@ -100,30 +107,35 @@ resource "kubernetes_deployment" "grafana-deployment" {
               }
             }
           }
+
           env {
             name  = "GF_AUTH_ANONYMOUS_ENABLED"
             value = "false"
           }
+
           resources {
             limits {
               cpu    = "100m"
               memory = "100Mi"
             }
+
             requests {
               cpu    = "100m"
               memory = "100Mi"
             }
           }
+
           volume_mount {
             name       = "grafana-pvc"
             mount_path = "/var/lib/grafana"
           }
-        #   readiness_probe {
-        #     http_get {
-        #       path = "/login"
-        #       port = "3000"
-        #     }
-        #   }
+
+          #   readiness_probe {
+          #     http_get {
+          #       path = "/login"
+          #       port = "3000"
+          #     }
+          #   }
           image_pull_policy = "IfNotPresent"
         }
       }
@@ -132,7 +144,8 @@ resource "kubernetes_deployment" "grafana-deployment" {
 }
 
 resource "kubernetes_service" "grafana-service" {
-  depends_on = ["kubernetes_secret.grafana-secrets"]  
+  depends_on = ["kubernetes_secret.grafana-secrets"]
+
   metadata {
     name      = "grafana-service"
     namespace = "tools"
@@ -140,7 +153,7 @@ resource "kubernetes_service" "grafana-service" {
 
   spec {
     selector {
-      app       = "grafana-deployment"
+      app = "grafana-deployment"
     }
 
     port {
@@ -148,7 +161,7 @@ resource "kubernetes_service" "grafana-service" {
       port        = 80
       target_port = 3000
     }
-    
+
     type = "LoadBalancer"
   }
 }
