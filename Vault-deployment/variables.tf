@@ -1,4 +1,4 @@
-variable "vault_token" {}
+variable "secret" {}
 variable "namespace" {}
 
 
