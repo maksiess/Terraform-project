@@ -6,25 +6,30 @@ resource "google_container_cluster" "gke-cluster" {
     min_master_version  = "1.11.8-gke.6"
     initial_node_count  = "1"
     remove_default_node_pool = true
-}
 
-resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "snoop-dogg-pool"
-  location   = "us-central1"
-  cluster    = "${google_container_cluster.gke-cluster.name}"
-  node_count = 1
-
-  node_config {
+    node_config {
     preemptible  = true
     machine_type = "n1-standard-2"
-
-    metadata {
-      disable-legacy-endpoints = "true"
     }
-
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
-    ]
-  }
 }
+
+# resource "google_container_node_pool" "primary_preemptible_nodes" {
+#   name       = "snoop-dogg-pool"
+#   location   = "us-central1"
+#   cluster    = "${google_container_cluster.gke-cluster.name}"
+#   node_count = 1
+
+#   node_config {
+#     preemptible  = true
+#     machine_type = "n1-standard-2"
+
+#     metadata {
+#       disable-legacy-endpoints = "true"
+#     }
+
+#     oauth_scopes = [
+#       "https://www.googleapis.com/auth/logging.write",
+#       "https://www.googleapis.com/auth/monitoring",
+#     ]
+#   }
+# }
