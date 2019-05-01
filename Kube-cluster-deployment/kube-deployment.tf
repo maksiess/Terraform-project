@@ -32,8 +32,8 @@
 resource "google_container_cluster" "gke-cluster" {
     name                = "snoop-dogg"
     network             = "default"
-    subnetwork          = "us-central1"
-    location            = "us-central1-a"
+    # subnetwork          = "us-central1"
+    location            = "us-central1"
     min_master_version  = "1.11.8-gke.6"
     initial_node_count  = "3"
 }
