@@ -36,5 +36,17 @@ resource "google_container_cluster" "gke-cluster" {
     location            = "us-central1-a"
     min_master_version  = "1.11.8-gke.6"
     initial_node_count  = "3"
-    machineType         = "n1-standard-2"
+}
+
+resource "google_container_node_pool" "primary_preemptible_nodes" {
+  name       = "snoop-dogg-pool"
+  location   = "us-central1"
+  cluster    = "${google_container_cluster.gke-cluster.name}"
+  node_count = 2
+
+  node_config {
+    preemptible  = true
+    machine_type = "n1-standard-1"
+
+  }
 }
