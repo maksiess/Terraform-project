@@ -1,3 +1,8 @@
+provider "google" {
+  credentials   = "${file("${var.cpath}")}"
+  project       = "${var.project}"
+  region        = "${var.region}"
+}
 module "my-cluster" {
     name                = "snoop-dogg"
     network             = "default"
