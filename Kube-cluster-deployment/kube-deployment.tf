@@ -4,12 +4,18 @@ resource "google_container_cluster" "gke-cluster" {
     # subnetwork          = "us-central1"
     location            = "us-central1"
     min_master_version  = "1.11.8-gke.6"
-    initial_node_count  = "1"
+    initial_node_count  = 1
     remove_default_node_pool = true
 
     node_config {
     preemptible  = true
-    machine_type = "n1-standard-2"
+    machine_type = "n1-standard-1"
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/devstorage.read_only",
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring",
+    ]
     }
 }
 
