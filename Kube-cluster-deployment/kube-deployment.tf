@@ -33,8 +33,8 @@ resource "google_container_cluster" "gke-cluster" {
     name                = "snoop-dogg"
     network             = "default"
     subnetwork          = "us-central1"
-    zone                = "us-central1-a"
-    kube_version        = "1.11.8-gke.6"
+    location            = "us-central1-a"
+    master_version      = "1.11.8-gke.6"
     initial_node_count  = "3"
     machine_type        = "n1-standard-2"
 }
