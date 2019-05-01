@@ -9,5 +9,5 @@ variable "display_name" {
 variable "roles" {
     type        = "list"
     description = "The roles that will be granted to the account."
-    default     = ["roles/cloudsql.owner"]
+    default     = ["roles/cloudsql.admin"]
 }
