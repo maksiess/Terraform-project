@@ -1,4 +1,7 @@
-    
+# variable "servicePath" {} //terraform service account
+# variable "project" {}
+# variable "region" {}
+
 # variable "zone" {
 # 	default     = "europe-west4-b"
 # 	description = "Zone to locate cluster in"
