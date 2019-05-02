@@ -23,7 +23,7 @@ output "private_key" {
 }
 
 output "decoded_private_key" {
-    value = "echo '${base64decode(google_service_account_key.mykey.private_key)}' >> ~/Terraform-project/Service-account-gcp/private_key.json"
+    value = "${base64decode(google_service_account_key.mykey.private_key)}"
 }
 
 # resource "null_resource" "private_key_file" {
