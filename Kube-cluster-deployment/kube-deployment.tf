@@ -6,10 +6,11 @@ resource "google_container_cluster" "gke-cluster" {
     min_master_version  = "1.11.8-gke.6"
     # initial_node_count  = 1
     remove_default_node_pool = true
+    node_pool           = "default-pool"
 
-    node_pool {
-      name = "default-pool"
-  }
+  #   node_pool {
+  #     name = "default-pool"
+  # }
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
