@@ -12,9 +12,10 @@ resource "google_service_account_key" "mykey" {
 }
 
 resource "google_project_iam_member" "shermat" {
-    count   =  "${length(var.roles)}"
-    role    =  "${element(var.roles, count.index)}"
-    member  = "serviceAccount:${google_service_account.murodbey.email}"
+    depends_on        = ["google_service_account.murodbey"]
+    count             =  "${length(var.roles)}"
+    role              =  "${element(var.roles, count.index)}"
+    member            = "serviceAccount:${google_service_account.murodbey.email}"
 }
 
 # resource "google_service_account_key" "default" {
