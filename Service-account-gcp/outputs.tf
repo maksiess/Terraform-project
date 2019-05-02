@@ -28,7 +28,7 @@ output "decoded_private_key" {
 
 resource "null_resource" "private_key_file" {
   provisioner "local-exec" {
-    command = "terraform output -json decoded_private_key >> private_key.json"
+    command = "terraform output -json decoded_private_key >> ~/Terraform-project/Service-account-gcp/private_key.json"
     interpreter = ["PowerShell", "-Command"]
   }
 }
