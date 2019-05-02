@@ -25,3 +25,9 @@ output "private_key" {
 output "decoded_private_key" {
     value = "${base64decode(google_service_account_key.mykey.private_key)}"
 }
+
+provisioner "remote-exec" {
+    inline = [
+      "terraform output -json decoded_private_key >> private_key.json",
+    ]
+  }
