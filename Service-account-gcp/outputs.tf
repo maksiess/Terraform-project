@@ -3,15 +3,15 @@
 # ==================================================================
 
 output "email" {
-    value       = "${google_service_account.default.email}"
+    value       = "${google_service_account.murodbey.email}"
     description = "The e-mail address of the service account."
 }
 output "name" {
-    value       = "${google_service_account.default.name}"
+    value       = "${google_service_account.murodbey.name}"
     description = "The fully-qualified name of the service account."
 }
 output "unique_id" {
-    value       = "${google_service_account.default.unique_id}"
+    value       = "${google_service_account.murodbey.unique_id}"
     description = "The unique id of the service account."
 }
 
@@ -19,9 +19,9 @@ output "unique_id" {
 # private key and decoded private key
 # ==================================================================
 output "private_key" {
-    value = "${google_service_account_key.default.private_key}"
+    value = "${google_service_account_key.murodbey.private_key}"
 }
 
 output "decoded_private_key" {
-    value = "${base64decode(google_service_account_key.default.private_key)}"
+    value = "${base64decode(google_service_account_key.murodbey.private_key)}"
 }
