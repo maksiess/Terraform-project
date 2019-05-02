@@ -2,13 +2,13 @@ resource "google_container_cluster" "gke-cluster" {
     name                = "snoop-dogg"
     network             = "default"
     subnetwork          = "default"
-    zone                = "us-central1-a"
+    location            = "us-central1-a"
     min_master_version  = "1.11.8-gke.6"
     initial_node_count  = "2"
 
     node_config {
       # image_type   = "${var.node_image_type}"
-      machine_type = "n1-standard-2"
+      machine_type      = "n1-standard-2"
       # disk_size_gb = "${var.node_disk_size_gb}"
 
     # The set of Google API scopes
