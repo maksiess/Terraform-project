@@ -4,7 +4,7 @@ resource "google_container_cluster" "gke-cluster" {
     # subnetwork          = "us-central1"
     location            = "us-central1"
     min_master_version  = "1.11.8-gke.6"
-    initial_node_count  = 1
+    initial_node_count  = "1"
     # remove_default_node_pool = true
     node_config {
       # image_type   = "${var.node_image_type}"
