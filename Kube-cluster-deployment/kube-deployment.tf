@@ -8,7 +8,7 @@ resource "google_container_cluster" "gke-cluster" {
     remove_default_node_pool = true
     node_config {
       # image_type   = "${var.node_image_type}"
-      machine_type = "n1-standard-2"
+      machine_type = "n1-standard-1"
       # disk_size_gb = "${var.node_disk_size_gb}"
 
     # The set of Google API scopes
