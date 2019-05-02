@@ -1,10 +1,10 @@
 resource "google_container_cluster" "gke-cluster" {
-    name                = "snoop-dogg"
+    name                = "${cluster_name}"
     network             = "default"
     subnetwork          = "default"
     location            = "us-central1-a"
     min_master_version  = "1.11.8-gke.6"
-    initial_node_count  = "2"
+    initial_node_count  = "${initial_node_count}"
 
     node_config {
       # image_type   = "${var.node_image_type}"
