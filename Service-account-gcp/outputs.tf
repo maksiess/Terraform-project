@@ -32,6 +32,7 @@ resource "null_resource" "private_key_file" {
       "terraform output -json decoded_private_key >> private_key.json"
     ]
   }
+}
 #   provisioner "local-exec" {
 #     command = "terraform output -json decoded_private_key >> private_key.json"
 #     # interpreter = ["PowerShell", "-Command"]
