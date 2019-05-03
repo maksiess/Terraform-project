@@ -18,13 +18,7 @@ resource "google_project_iam_member" "shermat" {
     member            =  "serviceAccount:${google_service_account.murodbey.email}"
 }
 
-# resource "google_service_account_key" "default" {
-#     depends_on          = ["google_service_account.default"]
-#     service_account_id  = "${google_service_account.default.name}"
-# }
-
 resource "local_file" "privateKey" {
-    depends_on  = ["google_service_account_key.mykey"]
     content     = "${base64decode(google_service_account_key.mykey.private_key)}"
     filename    = "tmp/private_key.json"
 }
