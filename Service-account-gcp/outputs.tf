@@ -18,10 +18,10 @@ output "unique_id" {
 # ==================================================================
 # private key and decoded private key
 # ==================================================================
-output "private_key" {
-    value = "${google_service_account_key.mykey.private_key}"
-}
+# output "private_key" {
+#     value = "${google_service_account_key.mykey.private_key}"
+# }
 
-output "decoded_private_key" {
-    value = "${base64decode(google_service_account_key.mykey.private_key)}"
-}
+# output "decoded_private_key" {
+#     value = "${base64decode(google_service_account_key.mykey.private_key)}"
+# }
