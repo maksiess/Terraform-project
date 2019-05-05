@@ -1,3 +1,8 @@
+provider "google" {
+  credentials = "${file("account.json")}"
+  project     = "my-project-id"
+  region      = "us-central1"
+}
 resource "google_service_account" "murodbey" {
     account_id   = "${var.account_id}"
     display_name = "${var.display_name}"
@@ -18,7 +23,7 @@ resource "google_project_iam_member" "shermat" {
     member            =  "serviceAccount:${google_service_account.murodbey.email}"
 }
 
-resource "local_file" "privateKey" {
+resource "local_file" "serviceAccountKey" {
     content     = "${base64decode(google_service_account_key.mykey.private_key)}"
-    filename    = "tmp/private_key.json"
+    filename    = "tmp/service_account_key.json"
 }

@@ -11,3 +11,7 @@ variable "roles" {
     description = "The roles that will be granted to the account."
     default     = ["roles/editor"]
 }
+
+variable "cpath" {
+    default     = "/home/murodbey/Terraform-projects/service-account-gcp/account.json"
+}
