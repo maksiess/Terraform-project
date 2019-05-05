@@ -1,5 +1,5 @@
 cluster_name            =    "snoop-dogg"
 initial_node_count      =    "2"
-cpath                   =    "/home/murodbey/Terraform-projects/service_account_key.json"
+cpath                   =    "/home/murodubechicago/Terraform-project/service_account_key.json"
 project                 =    "civil-celerity-239622"
 region                  =    "us-central1"
