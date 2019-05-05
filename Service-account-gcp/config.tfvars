@@ -1,5 +1,5 @@
 project_id      =       "civil-celerity-239622"
 display_name    =       "Snoop-dogg"
-roles           =       "roles/container.admin"
+# roles           =       "roles/container.admin"
 cpath           =       "/home/muroduberchicago/Terraform-project/Service-account-gcp/account.json"
 region          =       "us-central1"  
