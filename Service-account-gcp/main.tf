@@ -1,10 +1,10 @@
 provider "google" {
   credentials = "${file("account.json")}"
-  project     = "my-project-id"
-  region      = "us-central1"
+  project     = "${var.project_id}"
+  region      = "${var.region}"
 }
 resource "google_service_account" "murodbey" {
-    account_id   = "${var.account_id}"
+    account_id   = "${var.project_id}"
     display_name = "${var.display_name}"
 }
 
