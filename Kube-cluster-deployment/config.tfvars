@@ -1,4 +1,5 @@
+cluster_name            =    "snoop-dogg"
 initial_node_count      =    "2"
-cpath                   =    "/root/terraform-google-storage-bucket/focus-surfer-237100-28366fd72149.json"
-# project                 =    "project-id-7382984"
+cpath                   =    "/home/murodbey/Terraform-projects/service_account_key.json"
+project                 =    "civil-celerity-239622"
 region                  =    "us-central1"
