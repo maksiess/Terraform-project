@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "civil-celerity-239622",
+    "private_key_id": "fdd8b744e3e5415e76cd542e0484958a3d9dd436",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJqjBeLY+qn2NZ\nTrM/RCAh2RuzCX1hdOoWE5BhkTiubmJv/H7rTxMWPg7+8LAk7BKnWAWgF7p9dMye\nbWxeCFUr/+ctrA7sna6yrH7elxMNSyEbtcWqHaeb7gvSzR3XyIBUksKI4AhHBgdC\nSE8DtAPx9RufgYLcpetZ6V7kgH6JtqZXrhhVNYShfcS5MTsfXYcLxNFLscChAKjh\nmKH0topHm8dTc2gbszPRwRWYDuL7lBDacFVLsaxWi9YCU1QSRteKryvEk0L9udtW\nAHFR3zaesJN4F/rECJ1X1Tq1lRmhSm4zQHiQyP0Ir0OuJ5S8x1VM2VWx6cAlIrbu\nmoRJiQjbAgMBAAECggEAC0OoWU+uMKz1KFiPBpT66SkZX6duC3LeXcal+pfZVKpH\nG/48kKQ6wAlOCSDPQKC3F1sr+pnuCXKWuLAKrONGQ/jn+X3HhPah0B/Lzl8d6fuC\nU+vpU0E+ICWXH3qO6i4BjQ0i30Ze7/3+4HhC1vAdMEytSFGRn7AyNIl74Bjqoy0p\nOzhWFedgeht7T7MNK38V3M7ptfJC2xkQysxgPaYZTBHhOg7gOxkEngJt2Md6Kuj+\nb7Z+C+2CZKu9RgiZJOJLncKXhp65gLBSz00VG5T0TMQpzMflfn1/Fhdm3biozy2O\npcdGSJxeS8OMbyUc+yBmCE+ZxxKin/JnlOqci3Iq0QKBgQDoHbijYgY4+kK23GUb\n+FkeYTwjYDHaIN6xM30eozwAIdotaRsoZ0JKVmKm28qd/AkJcsyrlpVP0R0iPlJ1\n13gh3MdpaepUDa2nfG4vryP6XlaIQmeITT7dQptHZjBAmGltr9/cQn2ibP3De5Q9\no00MCulCYWahuRLY24We1dCmFwKBgQDealX3Pa1hdi//sztkxFkGiOl5+EajsJQD\nELlZH7Wi8D7Ubhcw+WaJCvviXbfrIYrXbaKbgUxn7lJ0DLIWlcJR56e0SGnMhnYp\nhq91qmttXRW//UxUvSoNyJe7qJFhjfVXXo05Jj9PCWe7OAPsRbfuqyRg/GCvv31S\nWZtYLyLx3QKBgGku3raa+vri3UyD/wV3utq7cUcOlkikUIW4MWCq08uzi2y8jmP2\ntuF81+OJAf4pceboMLso16x9tFgKKc/gvj2KEItCRb+lGyYkisHs+b7A9TF19fic\nGHqnbjoioocDCfN8mVL0hn4OKchlvb1YvNdSMnW0MY/jkBjZEWnytkQtAoGAHukA\nUYAM3IKkYRDzrClthe75I65RguZDa7mjSLOTdrWUxckXCANhMKKKJweHS/I5bX8b\nHil2COuiIeaxyVm+y8s6D2AQ9A+r1FGXiO7KR0SshSYauZwggBHkpHvk2H32HtJR\nJiQeoElaVTaPtQJrcYvvXls0xLgEHrG9WSAT5zECgYEAgexLHGCdeATPmLjDeE1q\nDnQUBlHY5KWZqm5Y04HVht9w5zZP2f3QyelkUx0uRe64zZWDoQq17Az9z4wfwc5i\ni8DLaNdkqxrgo59Bs5tCv+T3xON3UCPktl1iVisJB1BvdwYeOn1sFNYP09EI89NL\ntA2Hy+ZidsOGdtL0oQtYlSs=\n-----END PRIVATE KEY-----\n",
+    "client_email": "vasya-79@civil-celerity-239622.iam.gserviceaccount.com",
+    "client_id": "111228807725400252132",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vasya-79%40civil-celerity-239622.iam.gserviceaccount.com"
+  }
