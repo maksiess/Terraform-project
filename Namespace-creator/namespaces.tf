@@ -8,8 +8,10 @@ resource "kubernetes_namespace" "namespaces" {
       mylabel = "label-value"
     }
 
-    name = "dev-students"
+    name = "dev-students" 
+    # name = "prod-students"
+  }
+  metadata {
     name = "qa-students"
-    name = "prod-students"
   }
 }
