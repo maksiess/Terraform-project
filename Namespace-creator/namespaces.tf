@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "dev-students" {
+resource "kubernetes_namespace" "namespaces" {
   metadata {
     annotations {
       name = "example-annotation"
@@ -8,6 +8,8 @@ resource "kubernetes_namespace" "dev-students" {
       mylabel = "label-value"
     }
 
-    name = "dev-students-1"
+    name = "dev-students"
+    name = "qa-students"
+    name = "prod-students"
   }
 }
