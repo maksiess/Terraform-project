@@ -1,17 +1,17 @@
 resource "kubernetes_namespace" "namespaces" {
   metadata {
-    annotations {
-      name = "example-annotation"
-    }
-
-    labels {
-      mylabel = "label-value"
-    }
-
     name = "dev-students" 
-    # name = "prod-students"
   }
+}
+
+resource "kubernetes_namespace" "namespaces" {
   metadata {
-    name = "qa-students"
+    name = "qa-students" 
+  }
+}
+
+resource "kubernetes_namespace" "namespaces" {
+  metadata {
+    name = "prod-students" 
   }
 }
