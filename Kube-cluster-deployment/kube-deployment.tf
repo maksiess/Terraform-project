@@ -4,18 +4,20 @@ provider "google" {
   region        = "${var.region}"
 }
 resource "google_container_cluster" "gke-cluster" {
-    name                = "${var.cluster_name}"
-    network             = "default"
-    subnetwork          = "default"
-    zone                = "us-central1-a"
-    min_master_version  = "1.11.8-gke.6"
-    initial_node_count  = "${var.initial_node_count}"
-
-    resource_limits {
-      resource_type = "cpu"
-      minimum = "4"
-      resource_type = "memory"
-      minimum = "10"
+  name                = "${var.cluster_name}"
+  network             = "default"
+  subnetwork          = "default"
+  zone                = "us-central1-a"
+  min_master_version  = "1.11.8-gke.6"
+  initial_node_count  = "${var.initial_node_count}"
+    cluster_autoscaling {
+      enabled = true
+      resource_limits {
+        resource_type = "cpu"
+        minimum = "4"
+        resource_type = "memory"
+        minimum = "10"
+      }
     }
     node_config {
       # image_type   = "${var.node_image_type}"
