@@ -16,11 +16,11 @@ resource "google_container_cluster" "gke-cluster" {
       machine_type      = "n1-standard-2"
       # disk_size_gb = "${var.node_disk_size_gb}"
     resource_limits {
-        resource_type = "cpu"
-        minimum = "4"
-        resource_type = "memory"
-        minimum = "10"
-      }
+      resource_type = "cpu"
+      minimum = "4"
+      resource_type = "memory"
+      minimum = "10"
+    }
 
     # The set of Google API scopes
     # The following scopes are necessary to ensure the correct functioning of the cluster
