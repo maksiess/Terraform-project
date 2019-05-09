@@ -10,20 +10,20 @@ resource "google_container_cluster" "gke-cluster" {
   zone                = "us-central1-a"
   min_master_version  = "1.11.8-gke.6"
   initial_node_count  = "${var.initial_node_count}"
-    cluster_autoscaling {
-      enabled = true
-      resource_limits {
-        resource_type = "cpu"
-        minimum = "4"
-        resource_type = "memory"
-        minimum = "10"
-      }
+    # cluster_autoscaling {
+    #   enabled = true
+
     }
     node_config {
       # image_type   = "${var.node_image_type}"
       machine_type      = "n1-standard-2"
       # disk_size_gb = "${var.node_disk_size_gb}"
-
+    # resource_limits {
+      resource_type = "cpu"
+      minimum = "4"
+      resource_type = "memory"
+      minimum = "10"
+      # }
 
     # The set of Google API scopes
     # The following scopes are necessary to ensure the correct functioning of the cluster
