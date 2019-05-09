@@ -15,7 +15,7 @@ resource "google_container_cluster" "gke-cluster" {
       # image_type   = "${var.node_image_type}"
       machine_type      = "n1-standard-2"
       # disk_size_gb = "${var.node_disk_size_gb}"
-      resource_limits {
+    resource_limits {
         resource_type = "cpu"
         minimum = "4"
         resource_type = "memory"
