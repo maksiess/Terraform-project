@@ -13,7 +13,7 @@ resource "google_container_cluster" "gke-cluster" {
     # cluster_autoscaling {
     #   enabled = true
 
-    }
+
     node_config {
       # image_type   = "${var.node_image_type}"
       machine_type      = "n1-standard-2"
