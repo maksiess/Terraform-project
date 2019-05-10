@@ -3,38 +3,25 @@ provider "google" {
   project       = "${var.project}"
   region        = "${var.region}"
 }
-resource "google_container_cluster" "gke-cluster" {
-  name                = "${var.cluster_name}"
-  network             = "default"
-  subnetwork          = "default"
-  zone                = "us-central1-a"
-  min_master_version  = "1.11.8-gke.6"
-  initial_node_count  = "${var.initial_node_count}"
-    # cluster_autoscaling {
-    #   enabled = true
+resource "google_container_cluster" "cluster-fuchicorp-com" {
+    name                = "${var.cluster_name}"
+    network             = "default"
+    subnetwork          = "default"
+    zone                = "us-central1-a"
+    min_master_version  = "1.11.8-gke.6"
+    remove_default_node_pool = true
+    initial_node_count  = "${var.node_count}"
+}
 
+resource "google_container_node_pool" "node-fuchicorp-com" {
+  name       = "${var.node_name}"
+  location   = "us-central1-a"
+  cluster    = "${google_container_cluster.cluster-fuchicorp-com.name}"
+  node_count = "${var.node_count}"
 
     node_config {
+      machine_type      = "n1-standard-4"
+      # disk_size_gb = "${var.node_disk_size_gb}"
       # image_type   = "${var.node_image_type}"
-      machine_type      = "n1-standard-2"
-      disk_size_gb      = "10"
-    # resource_limits {
-    #   resource_type = "cpu"
-    #   minimum = "4"
-    #   resource_type = "memory"
-    #   minimum = "10"
-    #   }
-
-    # The set of Google API scopes
-    # The following scopes are necessary to ensure the correct functioning of the cluster
-    # oauth_scopes = [
-    #   "https://www.googleapis.com/auth/compute",
-    #   "https://www.googleapis.com/auth/devstorage.read_only",
-    #   "https://www.googleapis.com/auth/logging.write",
-    #   "https://www.googleapis.com/auth/monitoring",
-    # ]
-
-    # Tags can used to identify targets in firewall rules
-    # tags = ["${var.name}-cluster", "nodes"]
   }
 }
