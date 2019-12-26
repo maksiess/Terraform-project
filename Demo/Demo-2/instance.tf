@@ -6,7 +6,7 @@ resource "aws_key_pair" "mykey" {
 resource "aws_instance" "example" {
   ami           = "${var.AMIS[var.AWS_REGION]}"
   instance_type = "t2.micro"
-  key_name      = aws_key_pair.mykey.key_name
+  key_name      = "mykey"
 
   provisioner "file" {
     source      = "script.sh"
@@ -21,7 +21,7 @@ resource "aws_instance" "example" {
   connection {
     host        = coalesce(self.public_ip, self.private_ip)
     type        = "ssh"
-    user        = ${var.INSTANCE_USERNAME}
-    private_key = ${var.PATH_TO_PRIVATE_KEY}
+    user        = "${var.INSTANCE_USERNAME}"
+    private_key = "${var.PATH_TO_PRIVATE_KEY}"
   }
 }
