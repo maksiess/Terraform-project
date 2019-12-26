@@ -1,6 +1,6 @@
 resource "aws_key_pair" "mykey" {
   key_name   = "mykey"
-  public_key = file(var.PATH_TO_PUBLIC_KEY)
+  public_key = file(${var.PATH_TO_PUBLIC_KEY})
 }
 
 resource "aws_instance" "example" {
@@ -22,6 +22,6 @@ resource "aws_instance" "example" {
     host        = coalesce(self.public_ip, self.private_ip)
     type        = "ssh"
     user        = ${var.INSTANCE_USERNAME}
-    private_key = file(var.PATH_TO_PRIVATE_KEY)
+    private_key = file(${var.PATH_TO_PRIVATE_KEY})
   }
 }
