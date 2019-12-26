@@ -1,10 +1,10 @@
 resource "aws_key_pair" "mykey" {
   key_name   = "mykey"
-  public_key = ${var.PATH_TO_PUBLIC_KEY}
+  public_key = "${var.PATH_TO_PUBLIC_KEY}"
 }
 
 resource "aws_instance" "example" {
-  ami           = ${var.AMIS[var.AWS_REGION]}
+  ami           = "${var.AMIS[var.AWS_REGION]}"
   instance_type = "t2.micro"
   key_name      = aws_key_pair.mykey.key_name
 
