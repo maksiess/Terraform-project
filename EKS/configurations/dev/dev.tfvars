@@ -5,10 +5,10 @@ subnet2 = "subnet-0aaaa637222d1e7c4"
 subnet3 = "subnet-02c8ee4fc3650b958"
 region = "us-east-1"
 cluster_name = "cluster-eks"
-
-
-
 environment = "dev"
+
+
+
 s3_folder_project = "application"            #Will be used to set backend.tf
 s3_folder_region = "us-east-1"               #Will be used to set backend.tf
 s3_folder_type = "state"                     #Will be used to set backend.tf
@@ -17,9 +17,9 @@ s3_tfstate_file = "infrastructure.tfstate"   #Will be used to set backend.tf
 
 
 instance_type = "t2.micro"
-asg_max_size = "48" 
+asg_max_size = "96" 
 asg_min_size = "3"
-asg_desired_capacity = "3"
+asg_desired_capacity = "6"
 cluster_version = "1.14"
 
 
