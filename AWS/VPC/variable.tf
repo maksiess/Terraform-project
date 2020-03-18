@@ -12,4 +12,3 @@ variable "cidr_block3_private" {}
 variable "az1" {}
 variable "az2" {}
 variable "az3" {}
-
