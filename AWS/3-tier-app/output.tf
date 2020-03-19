@@ -13,6 +13,7 @@ output "Subnet2" {
 output "Subnet3" {
   value = "${data.terraform_remote_state.dev.Subnet3}"
 }
+
 output "private_subnet1" {
   value = "${data.terraform_remote_state.dev.private_subnet1}"
 }
@@ -24,5 +25,3 @@ output "private_subnet2" {
 output "private_subnet3" {
   value = "${data.terraform_remote_state.dev.private_subnet3}"
 }
-
-

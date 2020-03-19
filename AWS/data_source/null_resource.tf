@@ -17,7 +17,7 @@ resource "null_resource" "murodbey" {
       "w",
       "free -m",
       "sleep 5",
-      "sudo apt-get install wget -y"
+      "sudo apt-get install wget -y",
     ]
   }
 }

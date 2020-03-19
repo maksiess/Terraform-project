@@ -1,10 +1,11 @@
 # Create a new load balancer
 resource "aws_elb" "bar" {
-  name               = "wordpress"
-  subnets            = [       "${data.terraform_remote_state.dev.Subnet1}",
-                               "${data.terraform_remote_state.dev.Subnet2}",
-                               "${data.terraform_remote_state.dev.Subnet3}"
-                        ]
+  name = "wordpress"
+
+  subnets = ["${data.terraform_remote_state.dev.Subnet1}",
+    "${data.terraform_remote_state.dev.Subnet2}",
+    "${data.terraform_remote_state.dev.Subnet3}",
+  ]
 
   listener {
     instance_port     = 80
