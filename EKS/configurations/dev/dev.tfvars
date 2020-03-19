@@ -4,7 +4,7 @@ subnet1 = "subnet-008608e4efd380a35"
 subnet2 = "subnet-0aaaa637222d1e7c4"
 subnet3 = "subnet-02c8ee4fc3650b958"
 region = "us-east-1"
-cluster_name = "cluster-eks"
+cluster_name = "cluster-dev"
 environment = "dev"
 
 
