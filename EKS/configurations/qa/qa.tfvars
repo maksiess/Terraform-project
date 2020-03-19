@@ -1,8 +1,9 @@
 s3_bucket = "terraform-class-murodbey"       #Will be used to set backend.tf
-vpc_id = "vpc-2d3c1b4a"
-subnet1 = "subnet-894361d2"
-subnet2 = "subnet-d5180eb2"
-region = "us-west-1"
+vpc_id = "vpc-0b5e008dd2d9681e3"
+subnet1 = "subnet-0820acadf9f3e21e8"
+subnet2 = "subnet-06003e02a6c4fc1d0"
+subnet3 = "subnet-08e27d2980b8a8dd3"
+region = "eu-west-1"
 cluster_name = "cluster-qa"
 environment = "qa"
 
