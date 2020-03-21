@@ -1,11 +1,11 @@
 # Install azure CLI
 
-##Prerequisites 
+## Prerequisites 
 Install on CentOS 
 
 Terraform 0.11.15 
 
-##Install AZ Cli on CentOS 
+## Install AZ Cli on CentOS 
 ```
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc 
 ```

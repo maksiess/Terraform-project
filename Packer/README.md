@@ -27,4 +27,17 @@
 ```
 - packer validate golden_image.json
 - packer build golden_image.json
+- packer inspect golden_image.json
+```
+go to aws ec2/ami you should see you ami.
+
+https://1drv.ms/u/s!AlhkGEMOXdE0gRBWZ2oJCj4wAJ3E
+
+
+### you can breakpoint at the end of the file
+```
+        {
+            "type": "breakpoint",
+            "note": "Wait for you to delete"
+        }
 ```
