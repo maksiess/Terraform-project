@@ -25,6 +25,6 @@
 ## Build Image
 
 ```
-packer validate golden_image.json
-
+- packer validate golden_image.json
+- packer build golden_image.json
 ```
