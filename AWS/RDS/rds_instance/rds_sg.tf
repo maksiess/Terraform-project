@@ -1,12 +1,12 @@
 resource "aws_security_group" "rds_sg" {
   name        = "rds_sg"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.id
 
   ingress {
     from_port   = 0
     to_port     = 0
     protocol    = "tcp"
-    cidr_blocks = [aws_vpc.main.cidr_block]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
