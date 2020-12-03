@@ -8,7 +8,6 @@ variable "db_instance_type" {}
 variable "storage_type" {}
 variable "storage_cap" {}
 variable "identifier" {}
-variable "security_group" {}
 
 
 
