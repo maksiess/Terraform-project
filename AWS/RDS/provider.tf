@@ -10,5 +10,5 @@ terraform {
     #     local       =   "1.4.0"
     #     template    =   "2.1.2"
     #     random      =   "2.2.1"
-    }
+    # }
 }
