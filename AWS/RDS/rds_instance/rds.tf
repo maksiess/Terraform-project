@@ -5,7 +5,7 @@ resource "aws_db_instance" "rds" {
 	engine = var.engine
 	engine_version = var.engine_version
 	instance_class = var.db_instance_type
-    vpc_security_group_ids = [aws_db_security_group.rds_sg.id]
+    vpc_security_group_ids = [aws_security_group.rds_sg.id]
 	name = var.name
 	username = var.username
 	password = var.password
@@ -15,6 +15,6 @@ resource "aws_db_instance" "rds" {
 	# vpc_security_group_ids = ["${aws_security_group.db.id}"]
     # availability_zone = "us-east-2"
     depends_on = [
-    aws_db_security_group.rds_sg
+    aws_security_group.rds_sg
   ]
 }
