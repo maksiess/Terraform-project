@@ -5,13 +5,16 @@ resource "aws_db_instance" "rds" {
 	engine = var.engine
 	engine_version = var.engine_version
 	instance_class = var.db_instance_type
+    security_group_names = var.security_group
 	name = var.name
 	username = var.username
 	password = var.password
-	# parameter_group_name = "default:postgres-12"
 	publicly_accessible = true
     skip_final_snapshot = true
 	# db_subnet_group_name = "${aws_db_subnet_group.db.name}"
 	# vpc_security_group_ids = ["${aws_security_group.db.id}"]
     # availability_zone = "us-east-2"
+    depends_on = [
+    aws_db_security_group.rds_sg,
+  ]
 }
