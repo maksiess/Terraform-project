@@ -1,4 +1,4 @@
-data "aws_db_instance" "database" {
+data "aws_db_cluster" "database" {
   db_instance_identifier = "aurora-cluster"
 }
 
