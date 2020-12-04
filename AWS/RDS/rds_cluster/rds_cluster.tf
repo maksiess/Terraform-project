@@ -10,3 +10,12 @@ resource "aws_rds_cluster" "postgresql" {
 #   preferred_backup_window = "07:00-09:00"
 #   backup_retention_period = 5
 }
+
+resource "aws_rds_cluster_instance" "cluster_instances" {
+  count              = var.count
+  identifier         = "aurora-cluster-${count.index}"
+  cluster_identifier = aws_rds_cluster.default.id
+  instance_class     = "db.r4.large"
+  engine             = aws_rds_cluster.default.engine
+  engine_version     = aws_rds_cluster.default.engine_version
+}
