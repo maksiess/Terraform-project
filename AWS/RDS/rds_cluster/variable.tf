@@ -5,4 +5,4 @@ variable "password" {}
 variable "name" {}
 variable "engine_version" {}
 variable "engine" {}
-variable "count" {}
+variable "number" {}

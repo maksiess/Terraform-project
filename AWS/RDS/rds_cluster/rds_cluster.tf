@@ -12,7 +12,7 @@ resource "aws_rds_cluster" "postgresql" {
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
-  count              = var.count
+  count              = var.number
   identifier         = "aurora-cluster-${count.index}"
   cluster_identifier = aws_rds_cluster.default.id
   instance_class     = "db.r4.large"
