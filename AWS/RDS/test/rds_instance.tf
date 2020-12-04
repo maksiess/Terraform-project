@@ -1,7 +1,7 @@
 resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = 1
-  identifier         = "aurora-cluster-demo-${count.index}"
-  cluster_identifier = aws_rds_cluster.postgresql.cluster-QHG2ADO7OGRN3K5WD64BQTASH4
+  identifier         = "aurora-cluster-${count.index}"
+  cluster_identifier = "aurora-cluster"
   instance_class     = "db.r4.large"
   engine             = "aurora-postgresql"
   engine_version     = 11.7
