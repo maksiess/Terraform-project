@@ -19,7 +19,7 @@ resource "null_resource" "test" {
         "git clone https://github.com/Murodbey/Terraform-project.git",
         "cd Terraform-project/Docker/vault_docker_compose/",
         "chmod +x docker-install.sh",
-        ". docker-install.sh",
+        "bash docker-install.sh",
         "docker-compose up -d"
     ]
 
