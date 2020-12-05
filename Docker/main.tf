@@ -2,7 +2,7 @@ data "aws_instance" "foo" {
   instance_id = var.instance_id
 }
 
-provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
         "sudo chmod +x /home/ec2-user/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
         "sudo . /home/ec2-user/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
