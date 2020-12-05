@@ -17,8 +17,9 @@ resource "null_resource" "test" {
     inline = [
         "yum install git -y",
         "git clone https://github.com/Murodbey/Terraform-project.git",
-        "chmod +x /root/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
-        "cd /root/Terraform-project/Docker/vault_docker_compose/",
+        "cd Terraform-project/Docker",
+        "chmod +x /vault_docker_compose/docker-install.sh",
+        "cd vault_docker_compose/",
         ". docker-install.sh",
         "docker-compose up -d"
     ]
