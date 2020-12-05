@@ -1,2 +1,2 @@
 variable "region" {}
-variable "private_key_file" {}
+# variable "private_key_file" {}
