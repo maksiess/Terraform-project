@@ -15,8 +15,8 @@ resource "null_resource" "test" {
 
   provisioner "remote-exec" {
     inline = [
-        "chmod +x /rootTerraform-project/Docker/vault_docker_compose/docker-install.sh",
-        "cd /rootTerraform-project/Docker/vault_docker_compose/docker-install.sh",
+        "chmod +x /root/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
+        "cd /root/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
         ". docker-install.sh",
         "docker-compose up -d"
     ]
