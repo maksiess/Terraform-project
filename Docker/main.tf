@@ -7,9 +7,8 @@ resource "null_resource" "test" {
 
   connection {
     user = "root"
-    private_key="${file("/root/.ssh/id_rsa")}"
+    private_key= file("/root/.ssh/id_rsa")
     host = "18.207.234.107"
-    # agent = true
     timeout = "3m"
   }
 
@@ -21,13 +20,6 @@ resource "null_resource" "test" {
         "chmod +x docker-install.sh",
         "bash docker-install.sh",
         "docker-compose up -d"
-    ]
-
-    # connection {
-    #   type = "ssh"
-    #   user = "ec2-user"
-    #   host = "18.207.234.107"
-    #   private_key = file(var.private_key_file)
-    # }
+      ]
     }
   }
