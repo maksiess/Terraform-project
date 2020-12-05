@@ -7,8 +7,9 @@ resource "null_resource" "test" {
 
   connection {
     user = "ec2-user"
-    private_key="${file("/home/ubuntu/.ssh/id_rsa")}"
-    agent = true
+    private_key="${file("/home/ec2-user/.ssh/id_rsa")}"
+    host = "18.207.234.107"
+    # agent = true
     timeout = "3m"
   }
 
