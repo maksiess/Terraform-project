@@ -15,9 +15,10 @@ resource "null_resource" "test" {
 
   provisioner "remote-exec" {
     inline = [
-        "sudo chmod +x /home/ec2-user/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
-        "sudo . /home/ec2-user/Terraform-project/Docker/vault_docker_compose/docker-install.sh",
-        "sudo docker-compose /home/ec2-user/Terraform-project/Docker/vault_docker_compose/docker-compose.yml up -d"
+        "chmod +x /rootTerraform-project/Docker/vault_docker_compose/docker-install.sh",
+        "cd /rootTerraform-project/Docker/vault_docker_compose/docker-install.sh",
+        ". docker-install.sh",
+        "docker-compose up -d"
     ]
 
     # connection {
