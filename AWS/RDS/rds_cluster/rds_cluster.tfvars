@@ -1,5 +1,5 @@
 region              =   "us-east-2"
-identifier          =   "aurora-cluster"
+identifier          =   "database-2"
 engine              =   "aurora-postgresql"
 engine_version      =   "11.7"
 name                =   "mydb"
