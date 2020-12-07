@@ -1,11 +1,11 @@
-data "aws_db_cluster_snapshot" "database-1_snapshot" {
-  db_cluster_identifier = "database-1"
-  most_recent           = true
+data "aws_db_snapshot" "database-1_snapshot" {
+  db_instance_identifier = aws_db_instance.database-1.id
+  most_recent            = true
 }
 
 resource "aws_rds_cluster" "postgresql" {
   cluster_identifier      = var.identifier
-  snapshot_identifier     = data.aws_db_cluster_snapshot.database-1_snapshot.id
+  snapshot_identifier     = data.aws_db_snapshot.database-1_snapshot.id
   engine                  = var.engine
   engine_version          = var.engine_version
   database_name           = var.name
