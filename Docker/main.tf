@@ -7,8 +7,8 @@ resource "null_resource" "test" {
 
   connection {
     user = "root"
-    private_key= file("/root/.ssh/id_rsa")
-    host = "3.87.232.230"
+    private_key = file("/root/.ssh/id_rsa")
+    host = "52.90.105.206"
     timeout = "3m"
   }
 
