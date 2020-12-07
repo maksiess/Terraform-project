@@ -5,7 +5,7 @@ data "aws_db_snapshot" "database-1_snapshot" {
 
 resource "aws_rds_cluster" "postgresql" {
   cluster_identifier      = var.identifier
-  snapshot_identifier     = data.aws_db_snapshot.database-1_snapshot.id
+  snapshot_identifier     = data.aws_db_snapshot.database-1_snapshot
   # db_snapshot_arn         = var.snapshot_identifier
   engine                  = var.engine
   engine_version          = var.engine_version
