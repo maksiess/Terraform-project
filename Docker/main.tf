@@ -8,13 +8,14 @@ resource "null_resource" "test" {
   connection {
     user = "root"
     private_key= file("/root/.ssh/id_rsa")
-    host = "34.228.41.114"
+    host = "3.83.228.196"
     timeout = "3m"
   }
 
   provisioner "remote-exec" {
     inline = [
         "yum install git -y",
+        "mkdir /root/data",
         "git clone https://github.com/Murodbey/Terraform-project.git",
         "cd Terraform-project/Docker/vault_docker_compose/",
         "chmod +x docker-install.sh",
