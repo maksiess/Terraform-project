@@ -1,5 +1,6 @@
 variable "region" {}
 variable "identifier" {}
+variable "snapshot_identifier" {}
 variable "username" {}
 variable "password" {}
 variable "name" {}
