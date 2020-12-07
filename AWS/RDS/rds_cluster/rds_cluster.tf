@@ -26,9 +26,9 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   engine             = aws_rds_cluster.postgresql.engine
   engine_version     = aws_rds_cluster.postgresql.engine_version
 
-  lifecycle {
-    ignore_changes = [
-      "snapshot_identifier",
-    ]
-}
+#   lifecycle {
+#     ignore_changes = [
+#       "snapshot_identifier",
+#     ]
+# }
 }
