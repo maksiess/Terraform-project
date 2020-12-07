@@ -1,5 +1,5 @@
 data "aws_db_snapshot" "database-1_snapshot" {
-  db_instance_identifier = database-1
+  db_instance_identifier = "database-1"
   most_recent            = true
 }
 
