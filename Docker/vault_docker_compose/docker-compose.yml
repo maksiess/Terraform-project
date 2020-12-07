@@ -9,7 +9,7 @@ services:
     volumes:
       - /root/data:/vault/file
       - /root/data:/vault/logs
-      - /root/data:/vault/config
+      - ./volumes/config:/vault/config
     cap_add:
       - IPC_LOCK
     entrypoint: vault server -config=/vault/config/vault.json
