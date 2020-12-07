@@ -1,6 +1,6 @@
 region              =   "us-east-2"
 identifier          =   "database-2"
-snapshot_identifier =   "rds:us-east-2:713287746880:snapshot:snap-postgres"
+snapshot_identifier =   "us-east-2:713287746880:snapshot:snap-postgres"
 engine              =   "aurora-postgresql"
 engine_version      =   "11.7"
 name                =   "mydb"
