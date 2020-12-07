@@ -1,10 +1,11 @@
 data "aws_db_snapshot" "database-1_snapshot" {
-  db_instance_identifier = "database-1"
+  db_snapshot_identifier = var.snapshot_identifier
   most_recent            = true
 }
 
 resource "aws_rds_cluster" "postgresql" {
   cluster_identifier      = var.identifier
+  snapshot_identifier     = data.aws_db_snapshot.database-1_snapshot.id
   # db_snapshot_arn         = var.snapshot_identifier
   engine                  = var.engine
   engine_version          = var.engine_version
@@ -21,7 +22,6 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = var.number
   identifier         = "aurora-cluster-${count.index}"
   cluster_identifier = aws_rds_cluster.postgresql.id
-  snapshot_identifier     = data.aws_db_snapshot.database-1_snapshot.id
   instance_class     = "db.r4.large"
   engine             = aws_rds_cluster.postgresql.engine
   engine_version     = aws_rds_cluster.postgresql.engine_version
