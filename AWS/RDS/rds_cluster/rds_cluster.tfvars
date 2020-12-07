@@ -1,4 +1,4 @@
-region              =   "us-west-2"
+region              =   "us-east-2"
 identifier          =   "aurora-cluster"
 engine              =   "aurora-postgresql"
 engine_version      =   "11.7"
