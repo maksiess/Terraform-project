@@ -1,4 +1,4 @@
-region              =   "us-east-2"
+region              =   "us-west-2"
 identifier          =   "database-2"
 snapshot_identifier =   "arn:aws:rds:us-east-2:713287746880:snapshot:snap-postgres"
 engine              =   "aurora-postgresql"
