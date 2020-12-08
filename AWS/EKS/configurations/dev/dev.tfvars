@@ -1,4 +1,4 @@
-s3_bucket = "terraform-class-murodbey"       #Will be used to set backend.tf
+s3_bucket = "murodbey"       #Will be used to set backend.tf
 vpc_id = "vpc-0f29a8cad47a17a5e"
 subnet1 = "subnet-04077c0e91be1493e"
 subnet2 = "subnet-0aaaa637222d1e7c4"
