@@ -1,12 +1,6 @@
-# data "aws_db_snapshot" "database-1_snapshot" {
-#   db_snapshot_identifier = var.snapshot_identifier
-#   most_recent            = true
-# }
-
 resource "aws_rds_cluster" "postgresql" {
   cluster_identifier      = var.identifier
   snapshot_identifier     = var.snapshot_identifier
-  # db_snapshot_arn         = var.snapshot_identifier
   engine                  = var.engine
   engine_version          = var.engine_version
   database_name           = var.name
@@ -25,10 +19,4 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   instance_class     = "db.r4.large"
   engine             = aws_rds_cluster.postgresql.engine
   engine_version     = aws_rds_cluster.postgresql.engine_version
-
-#   lifecycle {
-#     ignore_changes = [
-#       "snapshot_identifier",
-#     ]
-# }
 }
