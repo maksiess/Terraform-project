@@ -7,8 +7,8 @@ services:
       - "8200:8200"
     restart: always
     volumes:
-      - /root/data:/vault/file
-      - /root/data:/vault/logs
+      - ./volumes/logs:/vault/logs
+      - ./volumes/file:/vault/file
       - ./volumes/config:/vault/config
     cap_add:
       - IPC_LOCK
