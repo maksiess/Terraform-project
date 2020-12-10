@@ -31,11 +31,12 @@ spec:
             httpGet:
               path: /html
               port: http
-            initialDelaySeconds: {{ .Values.controller.livenessProbe.initialDelaySeconds }}
+              initialDelaySeconds: 10
           readinessProbe:
             httpGet:
               path: /html
               port: http
+              initialDelaySeconds: 10
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
