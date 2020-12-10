@@ -1,5 +1,5 @@
 resource "aws_security_group" "rds_sg" {
-  name        = "rds_sg"
+  name = "rds_sg"
   # vpc_id      = aws_vpc.id
 
   ingress {
