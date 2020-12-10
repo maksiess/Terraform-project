@@ -1,5 +1,13 @@
 replicaCount: 1
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the ServiceAccount to use.
+  # If not set and create is true, a name is generated using the fullname template
+  # If create is false and a name is not specified, the default service account is used for the cluster role binding.
+  name: rtl
+
 image: 
   repository: gcr.io/cool-album-298220/webapp
   tag: v1
