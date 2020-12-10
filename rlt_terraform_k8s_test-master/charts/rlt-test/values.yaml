@@ -32,6 +32,8 @@ resources: {}
 
 nodeSelector: {}
 
+initialDelaySeconds: 10
+
 tolerations: []
 
 affinity: {}
