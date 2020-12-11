@@ -24,7 +24,7 @@ ingress:
     kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - webapp.murodbey_fuchicorp.com
+    - webapp.murodbeyfuchicorp.com
   tls: []
 
 
