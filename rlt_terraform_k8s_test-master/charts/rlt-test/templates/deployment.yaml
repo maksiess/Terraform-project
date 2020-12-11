@@ -29,8 +29,8 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /html
-              port: http
+              # path: /html
+              port: service
             initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             timeoutSeconds: 1	            
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
@@ -39,8 +39,8 @@ spec:
             failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
           readinessProbe:
             httpGet:
-              path: /html
-              port: http
+              # path: /html
+              port: service
             periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
             timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
             successThreshold: {{ .Values.readinessProbe.successThreshold }}
