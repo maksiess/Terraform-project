@@ -9,7 +9,7 @@ az3      =   "us-east-1c"
 
 
 
-s3_bucket           =   "terraform-class-murodbey"
+s3_bucket           =   "murodbey-versioning"
 s3_folder_region    =	"us-east-1"
 # This is used for VPC CIDR BLOCK
 cidr_block          =   "10.0.0.0/16"
